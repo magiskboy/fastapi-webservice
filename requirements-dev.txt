@@ -1,0 +1,7 @@
+-r requirements.txt
+pytest
+pytest-cov
+requests==2.23.0
+jedi
+pylint
+mypy
