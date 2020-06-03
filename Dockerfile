@@ -5,7 +5,7 @@ LABEL maintainer="nguyenkhacthanh244@gmail.com" version="1.0"
 WORKDIR /app
 
 RUN apk update --no-cache && \
-    apk add --no-cache make gcc musl-dev libffi-dev openssl-dev
+    apk add --no-cache make gcc musl-dev
 
 ADD requirements.txt .
 
@@ -21,8 +21,8 @@ COPY --from=compile-image /app/env ./env
 
 ADD . .
 
-EXPOSE 80 5555
+EXPOSE 80
 
-ENTRYPOINT source env/bin/activate && uvicorn asgi:app --host 0.0.0.0 --port 80 --backlog 2000 --workers 2
+ENTRYPOINT source env/bin/activate && gunicorn asgi:app -c gunicorn.conf.py
 
 CMD /bin/sh
