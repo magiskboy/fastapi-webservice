@@ -17,6 +17,7 @@ class Setting(BaseSettings):
     DEBUG: bool = False
     SENTRY_DSN: Optional[str] = None
 
+    QUERY_TIME_THRESHOLD: float = 0.05
     DB_DRIVE: str = 'sqlite'
     DB_HOST: str = None
     DB_PORT: int = None
