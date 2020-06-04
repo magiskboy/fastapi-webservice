@@ -41,4 +41,4 @@ jobs:
         token: ${{ secrets.CODECOV_TOKEN }}
         file: ./coverage.xml
         fail_ci_if_error: true
-      if: ${{ github.ref == 'master' && matrix.python-version == '3.8' }}
+      if: ${{ matrix.python-version == '3.8' }}
