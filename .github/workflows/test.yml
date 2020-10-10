@@ -26,7 +26,7 @@ jobs:
           ${{ runner.os }}-
     - name: Install package
       run: |
-        pip install -e .
+        make deps
     - name: Lint with pylint
       run: |
         make lint

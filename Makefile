@@ -1,4 +1,8 @@
-all: dev
+all: deps dev
+
+deps:
+	pip install -e .
+	pip install -r requirements-dev.txt
 
 dev: app
 	@appcli dev
