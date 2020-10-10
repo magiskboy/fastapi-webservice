@@ -1,10 +1,9 @@
 all: dev
 
 dev: app
-	@appcli dev	
+	@appcli dev
 
 test:
-	pip install -e .
 	python -m pytest
 
 lint:

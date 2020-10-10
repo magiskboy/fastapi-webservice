@@ -24,9 +24,9 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-pip-
           ${{ runner.os }}-
-    - name: Install dependencies
+    - name: Install package
       run: |
-        make deps
+        pip install -e .
     - name: Lint with pylint
       run: |
         make lint
