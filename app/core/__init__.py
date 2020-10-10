@@ -1,3 +1,3 @@
 # coding=utf-8
 
-from .config import setting
+from app.core.config import setting

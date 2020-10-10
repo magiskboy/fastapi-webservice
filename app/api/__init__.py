@@ -3,7 +3,7 @@
 import fastapi
 from starlette.middleware.cors import CORSMiddleware
 from app import core
-from . import v1
+from app.api import v1
 
 
 def create_asgi() -> fastapi.FastAPI:

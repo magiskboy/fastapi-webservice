@@ -1,3 +1,3 @@
 # coding=utf-8
 
-from ._base import CRUDBase
+from app.repository._base import CRUDBase

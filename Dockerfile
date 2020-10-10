@@ -7,22 +7,12 @@ WORKDIR /app
 RUN apk update --no-cache && \
     apk add --no-cache make gcc musl-dev
 
-ADD requirements.txt .
-
-RUN python -mvenv env &&\
-    source env/bin/activate &&\
-    pip install --no-cache-dir -r requirements.txt
-
-FROM python:3.7-alpine AS runtime-image
-
-WORKDIR /app
-
-COPY --from=compile-image /app/env ./env
-
 ADD . .
 
-EXPOSE 80
+RUN pip install .
 
-ENTRYPOINT ./docker-entrypoint.sh
+EXPOSE 8000
+
+ENTRYPOINT appcli prod
 
 CMD /bin/sh

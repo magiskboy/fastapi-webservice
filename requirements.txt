@@ -1,7 +1,0 @@
-fastapi
-uvicorn
-uvloop
-SQLAlchemy
-sentry-sdk
-alembic
-email-validator

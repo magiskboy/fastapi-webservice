@@ -1,7 +1,7 @@
 # coding=utf-8
 
-from .base_class import Base
-from .session import (
+from app.db.base_class import Base
+from app.db.session import (
     engine,
-    Session
+    Session,
 )
