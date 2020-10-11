@@ -6,4 +6,3 @@ from . import model
 from . import repository
 from . import service
 from . import api
-from . import cli

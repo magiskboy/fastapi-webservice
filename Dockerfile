@@ -1,4 +1,4 @@
-FROM python:3.7-alpine AS compile-image
+FROM python:3.8.2-alpine AS compile-image
 
 LABEL maintainer="nguyenkhacthanh244@gmail.com" version="1.0"
 
@@ -7,12 +7,21 @@ WORKDIR /app
 RUN apk update --no-cache && \
     apk add --no-cache make gcc musl-dev
 
-ADD . .
+ADD ./requirements.txt .
 
-RUN pip install .
+RUN python -mvenv venv && \
+    venv/bin/pip install -r requirements.txt
+
+FROM python:3.8.2-alpine
+
+WORKDIR /app
+
+COPY --from=compile-image /app/venv ./venv
+
+ADD . .
 
 EXPOSE 8000
 
-ENTRYPOINT appcli prod
+ENTRYPOINT PYTHONPATH=. venv/bin/python app prod
 
 CMD /bin/sh

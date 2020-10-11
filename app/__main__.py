@@ -26,7 +26,7 @@ def run_server(host='0.0.0.0', port=8000, workers=None,     #pylint:disable=R091
         )
         app = SentryAsgiMiddleware(app).app
 
-    uvicorn.run('app.cli:app', host=host, port=port, reload=reload, \
+    uvicorn.run('app.__main__:app', host=host, port=port, reload=reload, \
                 workers=workers, log_level=log_level, loop=loop)
 
 
@@ -91,3 +91,7 @@ def routes():
     """List all of routes in application
     """
     show_routes()
+
+
+if __name__ == '__main__':
+    cli()

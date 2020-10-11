@@ -1,18 +1,24 @@
-all: deps dev
+all: dev
 
 deps:
-	pip install -e .
 	pip install -r requirements-dev.txt
 
-dev: app
-	@appcli dev
+dev: deps
+	python app dev
 
-test:
+test: deps
 	python -m pytest
 
-lint:
+lint: deps
 	PYTHONPATH=. python linter.py --fail-under 9.5 app
 	PYTHONPATH=. mypy app
 
 clean:
-	@rm -rf coverage.xml .coverage htmlcov
+	@rm -rf \
+		coverage.xml \
+		.coverage \
+		htmlcov \
+		*.egg-info \
+		dist \
+		docs/build \
+		docs/source/refs

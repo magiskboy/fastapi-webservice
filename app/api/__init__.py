@@ -7,6 +7,7 @@ from app.api import v1
 
 
 def create_asgi() -> fastapi.FastAPI:
+    """Function facetory for create a new ASGI object"""
     app = fastapi.FastAPI(
         title=core.setting.SERVICE_NAME,
         debug=core.setting.DEBUG,

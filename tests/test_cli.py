@@ -1,6 +1,6 @@
 from unittest import TestCase
 from click.testing import CliRunner
-from app.cli import cli
+from app.__main__ import cli
 
 
 class CommandLineTestCase(TestCase):

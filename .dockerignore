@@ -9,6 +9,8 @@ coverage.xml
 .coverage
 .codecov.yml
 .circleci
+htmlcov
+docs
 Dockerfile
 docker-compose.yml
 docker-compose.yml.example
