@@ -1,3 +1,5 @@
+TAG = $(shell cat .git/refs/heads/master | cut -c1-8)
+
 all: dev
 
 deps:
@@ -12,6 +14,9 @@ test: deps
 lint: deps
 	PYTHONPATH=. python linter.py --fail-under 9.5 app
 	PYTHONPATH=. mypy app
+
+docker-build: Dockerfile .dockerignore
+	docker build . -t nguyenkhacthanh/fastapi-boilerplate:m-$(TAG)
 
 clean:
 	@rm -rf \
